@@ -57,6 +57,7 @@ source /root/.bashrc
 foundryup
 ```
 
+**Repoyu indirelim**
 ```
 git clone https://github.com/sarox0987/polymerlab-ibc-app-solidity.git
 ```
@@ -106,13 +107,6 @@ cd polymerlab-ibc-app-solidity
 ![metmask](https://user-images.githubusercontent.com/111747226/214062437-69e144d9-528f-4a17-b46a-a747c1d5284c.png)
 
 
-**Repoyu indirelim**
-```
-git clone https://github.com/sarox0987/polymerlab-ibc-app-solidity.git
-```
-```
-cd polymerlab-ibc-app-solidity
-```
 **Just Kuralım**
 
 ```
