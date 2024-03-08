@@ -45,6 +45,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install git
 ```
 
+
 **Foundry İndiriyoruz.**
 ```
 curl -L https://foundry.paradigm.xyz | bash
@@ -54,6 +55,13 @@ source /root/.bashrc
 ```
 ```
 foundryup
+```
+
+```
+git clone https://github.com/sarox0987/polymerlab-ibc-app-solidity.git
+```
+```
+cd polymerlab-ibc-app-solidity
 ```
 
 **Optimism ve Base Sepolia Faucet**
