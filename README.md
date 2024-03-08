@@ -116,9 +116,6 @@ foundryup
 ```
 forge build
 ```
-```
-forge test
-```
 
 
 **env dosyasını düzenleyelim**
