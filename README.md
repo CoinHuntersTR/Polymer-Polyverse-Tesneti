@@ -130,6 +130,8 @@ nano .env
 
 > `BASE_ALCHEMY_API_KEY`yazan yere tırnaklar içinde Alchemy'den aldığımız Base Sepolia API keyi yazıyoruz.
 
+> Düzenlemeyi bitirdikten sonra Ctrl X Y sonra enter diyerek kayıt edip çıkıyoruz.
+
 ![Ekran görüntüsü 2024-03-09 015338](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/ddd16905-427d-4290-b128-a7c2daf56875)
 
 
