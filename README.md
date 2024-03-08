@@ -108,6 +108,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -
 curl -L https://foundry.paradigm.xyz | bash
 ```
 ```
+source /root/.bashrc
+```
+```
 foundryup
 ```
 ```
