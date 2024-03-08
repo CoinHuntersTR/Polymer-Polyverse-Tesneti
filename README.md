@@ -91,138 +91,62 @@ foundryup
 
 > Burada ilk satırda olan API key bir yere not ediyoruz. Aynı şekilde Base Sepolia içinde Apı Key alıp bir yere not ediyoruz.
 
+**Metamask Private Key alma**
+
+> Görseldeki adımları takip ederek, metamask cüzdanınızın private key'ini alıp bir yere not edin.
+
+![metmask](https://user-images.githubusercontent.com/111747226/214062437-69e144d9-528f-4a17-b46a-a747c1d5284c.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Repoyu indirelim**
 ```
-curl -Ls https://ss-t.selfchain.nodestake.org/addrbook.json > $HOME/.selfchain/config/addrbook.json
-```
-
-**Servis Dosyasını Oluşturuyoruz.**
-```
-sudo tee /etc/systemd/system/selfchaind.service > /dev/null <<EOF
-[Unit]
-Description=selfchaind Daemon
-After=network-online.target
-[Service]
-User=$USER
-ExecStart=$(which selfchaind) start
-Restart=always
-RestartSec=3
-LimitNOFILE=65535
-[Install]
-WantedBy=multi-user.target
-EOF
+git clone https://github.com/sarox0987/polymerlab-ibc-app-solidity.git
 ```
 ```
-sudo systemctl daemon-reload
+cd polymerlab-ibc-app-solidity
 ```
+**Just Kuralım**
+
 ```
-sudo systemctl enable selfchaind
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
 ```
 
-**Snapshot**
+**Forge Kuralım**
+
 ```
-SNAP_NAME=$(curl -s https://ss-t.selfchain.nodestake.org/ | egrep -o ">20.*\.tar.lz4" | tr -d ">")
-curl -o - -L https://ss-t.selfchain.nodestake.org/${SNAP_NAME}  | lz4 -c -d - | tar -x -C $HOME/.selfchain
-```
-**Node Tekrar Başlatıyoruz**
-```
-sudo systemctl restart selfchaind
+curl -L https://foundry.paradigm.xyz | bash
 ```
 ```
-journalctl -u selfchaind -f
+foundryup
+```
+```
+forge build
+```
+```
+forge test
 ```
 
 
-**Node Sync Kontrolü**
-> Senkronize olup olmadığımızı kontrol etmek için aşağıdaki kodu kullanıyoruz. `false` çıktısı aldığımızda işlem tamamdır.
-
-![Ekran görüntüsü 2024-02-27 163227](https://github.com/CoinHuntersTR/Self-Chain/assets/111747226/bfc7630a-09bf-45e4-9d5d-aaf0c8d39f7b)
-
+**env dosyasını düzenleyelim**
 
 ```
-selfchaind status 2>&1 | jq .SyncInfo
+nano .env
 ```
 
-**Cüzdan Oluşturma**
-> `Cüzdanismi` yazan yeri silip kendinize bir cüzdan oluşturabilirsiniz.
+>  `PRIVATE_KEY_1` yazan yere tırnaklar içinde metamaskımızdan aldığımız private key ekliyoruz.
 
-> Sizden bir şifre belirlemenizi isteyecek (2 kere aynı şifreyi gireceğiz.) unutmayacağınız bir şifre girin!
+> `OP_ALCHEMY_API_KEY`yazan yere tırnaklar içinde Alchemy'den aldığımız Optimisim Sepolia API keyi yazıyoruz.
 
-> Size verilen gizli kelimeleri bir yere not etmeyi unutmayın! 
+> `BASE_ALCHEMY_API_KEY`yazan yere tırnaklar içinde Alchemy'den aldığımız Base Sepolia API keyi yazıyoruz.
+
+![Ekran görüntüsü 2024-03-09 015338](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/ddd16905-427d-4290-b128-a7c2daf56875)
+
+
+**IBC Transferi ve Kontratları Çalıştırma**
 
 ```
-selfchaind keys add Cüzdanismi
+just install
 ```
-
-> Eğer kullandığınız bir cüzdanı eklemek istiyorsanız. `Cüzdanismi` yazan yeri değiştirmeyi unutmayın!
-
-> Sizden şifre isteyecek (2 kere aynı şifreyi giriyoruz.)
 ```
-selfchaind keys add Cüzdanismi --recvoer
+just do-it
 ```
-
-**Cüzdanda Token Değerini Görme**
-> `Cüzdanismi` yazan yeri, verdiğiniz cüzdan ismi ile değiştirin. Cüzdanınıza token gelip gelmediğini kontrol etmiş olursunuz.
-```
-selfchaind q bank balances $(selfchaind keys show Cüzdanismi -a)
-```
-## Bu adımdan sonrasında Discord'a Gidiyoruz.
-
-> İlk olarak [BURADAN](https://discord.gg/selfchainxyz) discord kanalına gidip verify adımını yapıyoruz.
-
-> #verify-role-request kanalına gidiyoruz.
-
-![Ekran görüntüsü 2024-02-27 164048](https://github.com/CoinHuntersTR/Self-Chain/assets/111747226/cea07184-83bb-4c88-8de0-18d99b87c7c5)
-
-> Buradaki botu çalıştırdığınızda size DM atacak.
-
-> Sizden iki bilgi istiyor. Birincisi Node ID yukarıda Node kurarken almış olmanız gerekiyor. İkincisi ise IP adresiniz. Bunları girdikten sonra rol gelmesini bekliyorsunuz. Rol geldikten sonra fauceti kullanabiliyoruz.
-
-
-**Validator Oluşturuyoruz..**
-
-> `Cüzdanismi` yazan yere kendi cüzdan adınızı giriyoruz.
-
-> `MonikerName` yerine kendi verdiğiniz Moniker adınızı giriyoruz.
-
-> `website` "" içine kendi twitter veya websitesinizi ekleyebilirsiniz.
-
->  `details` "" içine istediğiniz bir şey yazabilirsiniz. 
-```
-selfchaind tx staking create-validator \
---amount=1000000000uself \
---pubkey=$(selfchaind tendermint show-validator) \
---moniker=MonikerName \
---identity="" \
---details="Coin Hunters Community" \
---website="" \
---chain-id=self-dev-1 \
---commission-rate=0.10 \
---commission-max-rate=0.15 \
---commission-max-change-rate=0.01 \
---min-self-delegation=1 \
---from=Cüzdanismi \
---gas-prices=0.5uself \
---gas-adjustment=1.5 \
---gas=auto \
--y
-```
-
-
-**SelfChain Explorer**
-> Tüm adımları tamamladıktan sonra [BURADAN](https://explorer-devnet.selfchain.xyz/self) kendi validatorünüzü kontrol edebilirsiniz.
-
