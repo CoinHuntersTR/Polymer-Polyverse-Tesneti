@@ -150,3 +150,13 @@ just install
 ```
 just do-it
 ```
+> Aşağıdakine benzer sonuç elde edeceksiniz. Hem Optimism hemde Base için olan linkleri bir yere not edin.
+
+![Ekran görüntüsü 2024-03-09 015615](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/8483d2d2-ced3-4fcf-b8bd-12b30c2e8e7b)
+
+
+**Polyverse Devs Discord Rolü Alma**
+
+> Bu rolü almak için önce discord kanallarına giriyoruz. Eğer hala girmediyseniz. [BURADAN](https://discord.gg/DEedJybQqG) katılıyoruz. Verify adımını yaptıktan sonra `technical questions` kanalına orada paylaşılanlara benzer şekilde, ekran resmi ve linkleri paylaştığınızda `Polyverse Devs` rolünü alabilirsiniz. Testnet süresince ne değeri olur bilemem.
+
+> Ayrıca kafanıza takılan sorular ve geri dönüşler için [BURADAN](https://t.me/PolymerTurkiye) telegram grubumuza katılabilirsiniz.
