@@ -79,6 +79,33 @@ foundryup
 > Burada Optimism seçiyoruz. Network olarak Optimism Sepolia seçiyoruz. App bir isim ve açıklama ekleyip Create App diyoruz.
 
 ![Ekran görüntüsü 2024-03-09 013259](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/c4377cc0-1c69-4c92-9340-e295ecb940ad) 
+
+
+> Aynı adımları Base Sepolia ağı içinde yapıyoruz. Kısaca elimizde iki farklı RPC olması gerekiyor.
+
+![Ekran görüntüsü 2024-03-09 013542](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/e52f2d86-1fc0-432f-b311-cfe4c7c99c37)
+
+> API Key butonuna basıyoruz.
+
+![Ekran görüntüsü 2024-03-09 013714](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/612db66f-a03f-47c6-a93d-5d9fdd171a68)
+
+> Burada ilk satırda olan API key bir yere not ediyoruz. Aynı şekilde Base Sepolia içinde Apı Key alıp bir yere not ediyoruz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 curl -Ls https://ss-t.selfchain.nodestake.org/addrbook.json > $HOME/.selfchain/config/addrbook.json
 ```
