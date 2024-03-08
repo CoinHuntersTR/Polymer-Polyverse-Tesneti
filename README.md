@@ -46,17 +46,6 @@ sudo apt-get install git
 ```
 
 
-**Foundry İndiriyoruz.**
-```
-curl -L https://foundry.paradigm.xyz | bash
-```
-```
-source /root/.bashrc
-```
-```
-foundryup
-```
-
 **Repoyu indirelim**
 ```
 git clone https://github.com/sarox0987/polymerlab-ibc-app-solidity.git
