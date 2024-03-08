@@ -138,7 +138,7 @@ nano .env
 **IBC Transferi ve Kontratları Çalıştırma**
 
 ```
-sudo apt install npm
+npm install
 ```
 
 ```
