@@ -163,6 +163,11 @@ just do-it
 
 ![Ekran görüntüsü 2024-03-09 015615](https://github.com/CoinHuntersTR/Polymer-Polyverse-Tesneti/assets/111747226/8483d2d2-ced3-4fcf-b8bd-12b30c2e8e7b)
 
+**Hata Alırsan**
+```
+npx hardhat clean
+```
+> bunu yaptıktan sonra tekrardan `just do-it` komutunu çalıştırabilirsin.
 
 **Polyverse Devs Discord Rolü Alma**
 
