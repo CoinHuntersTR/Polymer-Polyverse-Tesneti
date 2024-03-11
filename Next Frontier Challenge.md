@@ -161,6 +161,10 @@ just install
 ```
 
 ```
+just do-it
+```
+
+```
 just switch-client
 ```
 ```
